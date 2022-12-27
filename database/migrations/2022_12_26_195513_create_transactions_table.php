@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOrdensTable extends Migration
+class CreateTransactionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,12 @@ class CreateOrdensTable extends Migration
      */
     public function up()
     {
-        Schema::create('ordens', function (Blueprint $table) {
+        Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
             $table->foreignId('user_id')->constrained();
-            $table->string('cod_acoes');
-            $table->integer('quantidade');
-            $table->float('saldo', 8, 2 );
+            $table->string('tipo');
+            $table->float('saldo', 8, 2 ); 
         });
     }
 
@@ -30,6 +29,6 @@ class CreateOrdensTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ordens');
+        Schema::dropIfExists('transactions');
     }
 }
