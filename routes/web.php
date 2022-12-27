@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ActiveController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    //return view('welcome');
+
+    return csrf_token();
 });
+
+
+Route::post('/active', [ActiveController::class, 'store']);
+Route::get('/actives', [ActiveController::class, 'getList']);
+Route::get('/active/{id}', [ActiveController::class, 'get']);
+Route::post('/active/{id}', [ActiveController::class, 'update']);
+Route::delete('/active/{id}', [ActiveController::class, 'destroy']);
+

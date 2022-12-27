@@ -38,6 +38,6 @@ class ActiveRepositoryEloquent implements ActiveRepositoryInterface
 
     public function destroy($id)
     {
-        return $this->model->delete($id);
+        return $this->model->find($id)->delete($id);
     }
 }

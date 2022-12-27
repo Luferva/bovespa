@@ -10,5 +10,5 @@ class Active extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['use_id','cod_acoes','quantidade'];
+    protected $fillable = ['user_id','cod_acoes','quantidade'];
 }

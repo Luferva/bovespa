@@ -20,8 +20,12 @@ public function __construct(ActiveService $service){
 	$this->service = $service;
 }
 
-public function store(array $data){
-	return $this->service->store($data);
+public function store(Request $request){
+	return $this->service->store([
+        'user_id'=> $request->user_id,
+        'cod_acoes'=> $request->cod_acoes,
+        'quantidade'=> $request->quantidade,
+    ]);
 }
 
 public function getList(){
@@ -32,8 +36,12 @@ public function get($id){
 	return $this->service->get($id);
 }
 
-public function update(array $data, $id){
-	return $this->service->update($data,$id);
+public function update(Request $request, $id){
+	return $this->service->update([
+        'user_id'=> $request->user_id,
+        'cod_acoes'=> $request->cod_acoes,
+        'quantidade'=> $request->quantidade,
+    ],$id);
 }
 
 public function destroy($id){
