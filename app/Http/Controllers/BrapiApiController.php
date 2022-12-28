@@ -26,6 +26,6 @@ class BrapiApiController extends Controller
         $apiArray=json_decode($base_url->body());
 
         //dd($apiArray);        
-        return view('welcome', ['apiArray'=>$apiArray->results]);
+        return view('welcome', ['apiArray'=>$apiArray->stocks]);
     }
 }

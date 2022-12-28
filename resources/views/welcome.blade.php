@@ -23,6 +23,17 @@
                 </tr>
             </thead>
             <tbody>
+
+                @foreach ($apiArray as $item)
+                <div class="card col-md-3">
+                    <img src="{{ $item->logo }}" alt="{{ $item->name }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $item->stock }}</h5>
+                       
+                    </div>
+                </div>
+                 @endforeach
+
                 @foreach ($apiArray as $item)
                 <tr>
                     <td>{{$item->symbol}}</td>
