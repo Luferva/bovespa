@@ -24,7 +24,7 @@ Route::post('/active/{id}', [ActiveController::class, 'update']);
 Route::delete('/active/{id}', [ActiveController::class, 'destroy']);
 
 
-//Route::get('/', [BrapiApiController::class, 'getList']);
+Route::get('/{ticker}', [BrapiApiController::class, 'getList']);
 Route::get('/', [BrapiApiController::class, 'getAllList']);
 
 

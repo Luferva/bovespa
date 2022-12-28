@@ -10,13 +10,13 @@ use Illuminate\Support\Facades\Http;
 
 class BrapiApiController extends Controller
 {
-    public function getList(){
-        $base_url=Http::get('https://brapi.dev/api/quote/PETR4');
+    public function getList($ticker){
+        $base_url=Http::get('https://brapi.dev/api/quote/'. $ticker);
 
         $apiArray=json_decode($base_url->body());
 
         //dd($apiArray);        
-        return view('welcome', ['apiArray'=>$apiArray->results]);
+        return view('show', ['apiArray'=>$apiArray->results]);
     }
 
     public function getAllList(){
