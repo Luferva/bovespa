@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
     <title> @yield('title')</title>
 
     <!-- Link CSS Bootstrap-->
@@ -24,7 +24,6 @@
             <div class="collapse navbar-collapse" id="navbar">
                 <a href="/" class="navbar-brand"><img src="/img/logo-acoes.png" alt="BrApi"><strong>Ações Brasil</strong></a>
                 <ul class="navbar-nav">
-                    @auth
                         <li class="nav-item">
                             <a href="/dashboard" class="nav-link">Minhas Carteira</a>
                         </li>
@@ -41,15 +40,13 @@
                                 </a>
                             </form>
                         </li>
-                    @endauth
-                    @guest
                         <li class="nav-item">
                             <a href="/login" class="btn btn-primary">Entrar</a>
                         </li>
                         <li class="nav-item">
                             <a href="/register" class="btn btn-outline-primary">Cadastrar</a>
                         </li>
-                    @endguest
+                    
                 </ul>
             </div>
         </nav>
@@ -60,7 +57,6 @@
             @yield('content')
         </div>
     </main>
-
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>

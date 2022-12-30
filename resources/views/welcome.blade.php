@@ -6,7 +6,7 @@
 
 
     <div id="select-container" class="col-md-12">
-        <form action="#" method="post">
+        <form action="#" method="post" class="col-md-12">
             @csrf
             <div class="col-md-4">
                 <select class="form-select form-select-sm" aria-label=".form-select-sm example">
@@ -27,7 +27,8 @@
                     <div class="card-body">
                         <h5 class="card-stock">{{ $item->stock }}</h5>
                         <p class="card-sector">{{ $item->sector }} </p>
-                        <a href="/getticker/{{ $item->stock }}" class="btn btn-primary">Saber mais</a>
+                        <p class="card-sector">Valor: {{$item->close}}</p>
+                        <a href="/getticker/{{ $item->stock }}" class="btn btn-primary"> Saber   mais</a>
                     </div>
                 </div>
             @endforeach

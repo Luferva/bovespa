@@ -31,11 +31,11 @@ header {
 
 #navbar a {
     font-size: 14px;
-    
+    padding-left: 10px;
 }
 
 #navbar a:hover {
-    color: #4087f2;
+    color: #101113;
 }
 
 
@@ -58,12 +58,10 @@ header {
 }
 
 #actives-container .card {
-    flex: 1 1 12%;
+    flex:auto;
     border-radius: 10px;
-    max-width: 14%;
     padding: 0;
-    margin: .5%;
-
+    margin: 5px;
 }
 
 #actives-container img {
