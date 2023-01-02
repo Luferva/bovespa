@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Title</title>
+   
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -16,33 +16,39 @@
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous">
     </script>
 
-</head>
+     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+     <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</head> 
 
 <body>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Código</th>
-            <th>Name</th>
-            <th>Preço</th>
-            <th>Alta do Dia</th>
-            <th>Baixa do Dia</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach ($apiArray as $item)
-        <tr>
-            
-            <td>{{ $item->symbol}}</td>
-            <td>{{ $item->shortName }}</td>
-            <td>{{ $item->regularMarketPrice}}</td>
-            <td>{{ $item->regularMarketDayHigh }}</td>
-            <td>{{ $item->regularMarketDayLow }}</td>
-        </tr>
-        @endforeach
-    </tbody>
-</table>
+<form action="#" method="POST" class="row g-3">
+    @foreach ($apiArray as $item)
+    <div class="col-md-6">
+        <label class="title" for="title">Codigo:</label>
+        <input type="text" class="form-control" id="cod" name="cod" placeholder="Código" value="{{$item->symbol}}" readonly >
+    </div>
+    <div class="col-md-6">
+        <label class="title" for="name">Nome:</label>
+        <input type="text" class="form-control" id="name" name="name" value="{{$item->shortName}}" readonly>
+    </div>
+    <div class="col-md-4">
+        <label class="title" for="regularMarketPrice">Preço Atual:</label>
+        <input type="text" class="form-control" id="regularMarketPrice" name="regularMarketPrice" value="{{$item->regularMarketPrice}}" readonly>
+    </div>
+    <div class="col-md-4">
+        <label class="title"for="regularMarketDayHigh"><ion-icon name="arrow-up-outline"></ion-icon>Alta do Dia:</label>
+        <input type="text" class="form-control" id="regularMarketDayHigh" name="regularMarketDayHigh" value="{{$item->regularMarketDayHigh}}" readonly>
+    </div>
+    <div class="col-md-4">
+        <label class="title" for="regularMarketDayLow"><ion-icon name="arrow-down-outline"></ion-icon>Baixa do Dia:</label>
+        <input type="text" class="form-control" id="regularMarketDayLow" name="regularMarketDayLow" value="{{$item->regularMarketDayLow}}" readonly>
+    </div>
+    @endforeach
+</form>
+
+ 
 
 </body>
 

@@ -25,19 +25,8 @@ header {
 }
 
 #navbar {
-    justify-content: space-between;
     background-color: #FFF;  
 }
-
-#navbar a {
-    font-size: 14px;
-    padding-left: 10px;
-}
-
-#navbar a:hover {
-    color: #101113;
-}
-
 
 /*select*/
 #select-container {
@@ -79,4 +68,16 @@ header {
 
 .card-sector {
     font-size: 14px;
+}
+
+.card-sector-green{
+    color: rgb(19, 218, 19);
+    font-size: 16px;
+
+}
+
+/* Formulario da Model */
+
+.title{
+    font-weight: bold;
 }
