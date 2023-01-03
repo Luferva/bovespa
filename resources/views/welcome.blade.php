@@ -8,17 +8,31 @@
 
    
 
-<form action="#" method="POST" class="row g-3">
+<form action="/" method="get" class="row g-3">
         <div class="col-1">
             <label for="staticlabel" class="visually-hidden"></label>
-           <input type="text" readonly class="form-control-plaintext" id="staticlabel"  value="Ordernar por: ">
+           <input type="text" readonly class="form-control-plaintext" id="staticlabel"  value="Organizar: ">
         </div>
         <div class="col-auto">
-            <select class="form-select form-select-sm" aria-label=".form-select-sm example">
-                <option selected>Selecione aqui:</option>
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="select" name="select">
+                <option selected value="">Selecione:</option>
                 <option value="name">Nome</option>
-                <option value="sector">Setor</option>
+                <option value="close">Preço</option>
             </select>
+        </div>
+        <div class="col-1">
+            <label for="staticlabel" class="visually-hidden"></label>
+           <input type="text" readonly class="form-control-plaintext" id="staticlabel"  value="Ordernar: ">
+        </div>
+        <div class="col-auto">
+            <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="select" name="order">
+                <option selected value="">Selecione:</option>
+                <option value="asc">Ascendente</option>
+                <option value="desc">Descendente</option>
+            </select>
+        </div>
+        <div class="col-auto">
+            <input type="text" class="form-label form-label-sm" placeholder="Define um limite" name="limit">
         </div>
         <div class="col-auto">
             <button type="submit" class="btn btn-primary mb-3">Buscar</button>

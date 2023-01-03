@@ -12,8 +12,28 @@ class BrapiApiController extends Controller
 {
     public function getAllList()
     {
-        $base_url = Http::get('https://brapi.dev/api/quote/list');
+        $select = request('select');
+        $order = request('order');
+        $limit = request('limit');
 
+        if($select && $order && $limit){
+            $base_url = Http::get('https://brapi.dev/api/quote/list?sortBy=' . $select . '&sortOrder=' . $order . '&limit=' . $limit);
+        }elseif($select && $order){
+            $base_url = Http::get('https://brapi.dev/api/quote/list?sortBy=' . $select . '&sortOrder=' . $order);
+        }elseif($select && $limit) {
+            $base_url = Http::get('https://brapi.dev/api/quote/list?sortBy=' . $select . '&limit=' . $limit);
+        }elseif($order && $limit){
+            $base_url = Http::get('https://brapi.dev/api/quote/list?sortOrder=' . $order . '&limit=' . $limit);
+        }elseif($select){
+            $base_url = Http::get('https://brapi.dev/api/quote/list?sortBy=' . $select);
+        }elseif($order){
+            $base_url = Http::get('https://brapi.dev/api/quote/list?sortOrder=' . $order);
+        }elseif($limit){
+            $base_url = Http::get('https://brapi.dev/api/quote/list?limit=' . $limit);
+        }else{
+            $base_url = Http::get('https://brapi.dev/api/quote/list');
+        }
+        
         $apiArray = json_decode($base_url->body());
 
         //dd($apiArray);        
@@ -29,7 +49,7 @@ class BrapiApiController extends Controller
         //dd($apiArray);        
         return view('show', ['apiArray' => $apiArray->results]);
     }
-    
+
     /*
     public function sortBy(Request $request){
         $base_url = Http::get('https://brapi.dev/api/quote/list?sortBy='.$request);
@@ -39,9 +59,4 @@ class BrapiApiController extends Controller
         dd($apiArray);        
         return view('welcome', ['apiArray' => $apiArray->stocks]);
     }*/
-
-    
-    
-
-
 }
