@@ -2,9 +2,13 @@
 
 @section('title', 'BrApi - Home')
 
+@section('titleH1', 'Lista de Ações')
+
 @section('content')
 
-    <form action="#" method="POST" class="row g-3">
+   
+
+<form action="#" method="POST" class="row g-3">
         <div class="col-1">
             <label for="staticlabel" class="visually-hidden"></label>
            <input type="text" readonly class="form-control-plaintext" id="staticlabel"  value="Ordernar por: ">
@@ -30,9 +34,8 @@
                     <div class="card-body">
                         <h5 class="card-stock">{{ $item->stock }}</h5>
                         <p class="card-sector">{{ $item->sector }} </p>
-                        <p class="card-sector-green"><strong>Valor: {{ $item->close }}</strong></p>
-                        <a href="#" class="btn btn-primary" onclick="visualizarActive('{{ $item->stock }}')">Saber
-                            mais</a>
+                        <p class="card-sector-green"><strong>R$ {{ number_format($item->close, 2,",","") }}</strong></p>
+                        <a href="#" class="btn btn-primary" onclick="visualizarActive('{{ $item->stock }}')"><ion-icon class="information-size"name="information-outline"></ion-icon></a>
                     </div>
                 </div>
             @endforeach

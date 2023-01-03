@@ -32,7 +32,7 @@
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid" id="navbar">
-                <a href="/" class="navbar-brand"><img src="/img/logo-acoes.png" alt="BrApi"><strong>Ações
+                <a href="/" class="navbar-brand"><img src="/img/logo-acoes.png" alt="BrApi"><strong> Ações
                         Brasil</strong></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                     data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
@@ -74,6 +74,11 @@
     </header>
 
     <main>
+        <div>
+            <h1 class="bg-primary bg-gradient text-white p-3">
+                @yield('titleH1')
+            </h1>
+        </div>
         <div class="conteiner-fluid">
             @yield('content')
         </div>

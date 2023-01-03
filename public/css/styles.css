@@ -28,6 +28,9 @@ header {
     background-color: #FFF;  
 }
 
+/* Style H1 */
+
+
 /*select*/
 #select-container {
     background-size: cover;
@@ -81,3 +84,20 @@ header {
 .title{
     font-weight: bold;
 }
+
+ion-icon{
+    color: rgb(0, 110, 255);
+}
+
+.arrow-up{
+    color: green;
+}
+
+.arrow-down{
+    color: red;
+}
+
+.information-size{
+    color: white;
+    font-size: 26px;
+} 
