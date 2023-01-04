@@ -17,15 +17,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 
-Route::post('/active', [ActiveController::class, 'store']);
+/* Route::post('/active', [ActiveController::class, 'store']);
 Route::get('/actives', [ActiveController::class, 'getList']);
 Route::get('/active/{id}', [ActiveController::class, 'get']);
 Route::post('/active/{id}', [ActiveController::class, 'update']);
-Route::delete('/active/{id}', [ActiveController::class, 'destroy']);
+Route::delete('/active/{id}', [ActiveController::class, 'destroy']); */
 
 
 //Rota da API
-Route::get('/', [BrapiApiController::class, 'getAllList']);
+Route::get('/', [BrapiApiController::class, 'getAllList'])->name('home');
 Route::get('/getticker/{ticker}', [BrapiApiController::class, 'getTicker']);
 
 //Route::post('/sortby', [BrapiApiController::class, 'sortBy']);
@@ -36,3 +36,13 @@ Route::get('/getticker/{ticker}', [BrapiApiController::class, 'getTicker']);
 
 
 
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

@@ -1,17 +1,17 @@
 @extends ('layouts.main')
 
-@section('title', 'BrApi - Home')
+@section('title', 'BrApi - Dashboard')
 
 @section('titleH1', 'Lista de Ações')
 
 @section('content')
 
-   
 
-<form action="/" method="get" class="row g-3">
+
+    <form action="/" method="get" class="row g-3">
         <div class="col-1">
             <label for="staticlabel" class="visually-hidden"></label>
-           <input type="text" readonly class="form-control-plaintext" id="staticlabel"  value="Organizar: ">
+            <input type="text" readonly class="form-control-plaintext" id="staticlabel" value="Organizar: ">
         </div>
         <div class="col-auto">
             <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="select" name="select">
@@ -22,7 +22,7 @@
         </div>
         <div class="col-1">
             <label for="staticlabel" class="visually-hidden"></label>
-           <input type="text" readonly class="form-control-plaintext" id="staticlabel"  value="Ordernar: ">
+            <input type="text" readonly class="form-control-plaintext" id="staticlabel" value="Ordernar: ">
         </div>
         <div class="col-auto">
             <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="select" name="order">
@@ -40,20 +40,22 @@
     </form>
 
 
-    <div id="actives-container" class="col-md-12">
-        <div id="cards-container" class="row">
-            @foreach ($apiArray as $item)
-                <div class="card text-center col-md-2" style="width: 12rem">
-                    <img src="{{ $item->logo }}" alt="{{ $item->name }}">
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-6 g-4">
+        @foreach ($apiArray as $item)
+            <div class="col">
+                <div class="card">
+                    <img src="{{ $item->logo }}" class="card-img-top" alt="{{ $item->name }}">
                     <div class="card-body">
                         <h5 class="card-stock">{{ $item->stock }}</h5>
                         <p class="card-sector">{{ $item->sector }} </p>
-                        <p class="card-sector-green"><strong>R$ {{ number_format($item->close, 2,",","") }}</strong></p>
-                        <a href="#" class="btn btn-primary" onclick="visualizarActive('{{ $item->stock }}')"><ion-icon class="information-size"name="information-outline"></ion-icon></a>
+                        <p class="card-sector-green"><strong>R$ {{ number_format($item->close, 2, ',', '') }}</strong></p>
+                        <a href="#" class="btn btn-primary" onclick="visualizarActive('{{ $item->stock }}')">
+                            <ion-icon class="information-size"name="information-outline"></ion-icon>
+                        </a>
                     </div>
                 </div>
-            @endforeach
-        </div>
+            </div>
+        @endforeach
     </div>
 
     <div class="modal fade" id="myModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -73,5 +75,6 @@
             </div>
         </div>
     </div>
+
 
 @endsection

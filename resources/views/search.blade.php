@@ -8,9 +8,10 @@
 
     <body>
 
-        @if ( $search)
+        @if ($response->failed())
             <p>Não foi possivel encontrar nenhuma papel por "{{ $search }}"! <a href="/">Ver Todas</a></p>
         @else
+
             <form action="#" method="POST" class="row g-3">
                 @foreach ($apiArray as $item)
                     <div class="col-md-6">
@@ -48,12 +49,16 @@
                         <input type="text" class="form-control" id="regularMarketDayLow" name="regularMarketDayLow"
                             value="R$ {{ number_format($item->regularMarketDayLow, 2, ',', '') }}" readonly>
                     </div>
+                    <div class="col-md-4">
+                        <a href="/" class="btn btn-secondary">Voltar</a>
+                        <button type="button" class="btn btn-primary">Compra</button>
+                    </div>
                 @endforeach
             </form>
+        @endif
     </body>
 
 
-    @endif
 
 
 @endsection

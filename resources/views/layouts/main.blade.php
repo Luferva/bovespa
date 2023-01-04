@@ -13,7 +13,7 @@
 
     <link rel="stylesheet" href="/css/styles.css">
 
-    {{-- Links Externos  --}}    
+    {{-- Links Externos  --}}
     <script src="/js/script.js"></script>
 
     <script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM="
@@ -44,28 +44,43 @@
                         <li class="nav-item">
                             <a class="nav-link active" aria-current="page" href="/">Home</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="/dashboard">Minha Carteira</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                                aria-expanded="false">
-                                Usuário
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Perfil</a></li>
-                                <li><a class="dropdown-item" href="#">Saldo</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item me-2">
-                            <a href="/login" class="btn btn-primary">Entrar</a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="/register" class="btn btn-outline-primary">Cadastrar</a>
-                        </li>
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link" href="/dashboard">Minha Carteira</a>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    Usuário
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="#">Perfil</a></li>
+                                    <li><a class="dropdown-item" href="#">Saldo</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item">
+                                <form action="/logout" method="POST">
+                                    @csrf
+                                    <a href="/logout" class="nav-link"
+                                        onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                                        Sair
+                                    </a>
+                                </form>
+                            </li>
+                        @endauth
+                        @guest
+                            <li class="nav-item">
+                                <a href="/login" class="nav-link">Entrar</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/register" class="nav-link">Cadastrar</a>
+                            </li>
+                        @endguest
                     </ul>
                     <form class="d-flex" role="search" action="/">
-                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name=search>
+                        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                            name=search>
                         <button class="btn btn-outline-success" type="submit">Search</button>
                     </form>
                 </div>

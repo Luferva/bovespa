@@ -19,10 +19,10 @@ class BrapiApiController extends Controller
 
             if($response->failed()){
                 //dd($apiArray); 
-                return view('search', ['apiArray' => $apiArray->error, 'search' =>$search]);
+                return view('search', ['apiArray' => $apiArray->error, 'search' =>$search, 'response' => $response]);
             }else{
                 //dd($apiArray); 
-                return view('search', ['apiArray' => $apiArray->results , 'search' =>$search]);
+                return view('search', ['apiArray' => $apiArray->results , 'search' =>$search, 'response' => $response]);
             }
             
         } else {

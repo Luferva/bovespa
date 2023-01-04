@@ -41,28 +41,14 @@ header {
 
 /*ActiveList*/
 
-#actives-container {
-    padding: 50px;
+.card{
+    text-align: center;
+}
+.card-img-top{
+    width: 200px;
 }
 
-#cards-container {
-    display: flex;
-}
-
-#actives-container .card {
-    flex:auto;
-    border-radius: 10px;
-    padding: 0;
-    margin: 5px;
-}
-
-#actives-container img {
-    max-height: 165px;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
-
-.card .card-stock {
+.card-stock {
     color: #212121;
     font-size: 20px;
     font-weight: bold;
@@ -77,7 +63,7 @@ header {
     color: rgb(19, 218, 19);
     font-size: 16px;
 
-}
+} 
 
 /* Formulario da Model */
 
