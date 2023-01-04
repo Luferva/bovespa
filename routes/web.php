@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ActiveController;
+use App\Http\Controllers\BalanceController;
+
 use App\Http\Controllers\BrapiApiController;
 use App\Models\BrapiApiRequest;
 use Illuminate\Support\Facades\Route;
@@ -16,19 +18,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Rota de acesso Usuário: Perfil e Saldo
 
-/* Route::post('/active', [ActiveController::class, 'store']);
+Route::get('/usuário/balance', [BalanceController::class, 'consultaSaldo']);
+
+
+
+Route::post('/active', [ActiveController::class, 'store']);
 Route::get('/actives', [ActiveController::class, 'getList']);
 Route::get('/active/{id}', [ActiveController::class, 'get']);
 Route::post('/active/{id}', [ActiveController::class, 'update']);
-Route::delete('/active/{id}', [ActiveController::class, 'destroy']); */
+Route::delete('/active/{id}', [ActiveController::class, 'destroy']); 
 
 
 //Rota da API
 Route::get('/', [BrapiApiController::class, 'getAllList'])->name('home');
 Route::get('/getticker/{ticker}', [BrapiApiController::class, 'getTicker']);
 
-//Route::post('/sortby', [BrapiApiController::class, 'sortBy']);
 
 
 
@@ -37,6 +43,7 @@ Route::get('/getticker/{ticker}', [BrapiApiController::class, 'getTicker']);
 
 
 
+//Rota do Jetstream para login e register
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),

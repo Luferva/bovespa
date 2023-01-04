@@ -66,13 +66,10 @@ class BrapiApiController extends Controller
         return view('show', ['apiArray' => $apiArray->results]);
     }
 
-    /*
-    public function sortBy(Request $request){
-        $base_url = Http::get('https://brapi.dev/api/quote/list?sortBy='.$request);
 
-        $apiArray = json_decode($base_url->body());
 
-        dd($apiArray);        
-        return view('welcome', ['apiArray' => $apiArray->stocks]);
-    }*/
+
+
+
+  
 }

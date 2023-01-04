@@ -55,7 +55,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Perfil</a></li>
-                                    <li><a class="dropdown-item" href="#">Saldo</a></li>
+                                    <li><a class="dropdown-item" href="/usuário/balance">Saldo</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">
