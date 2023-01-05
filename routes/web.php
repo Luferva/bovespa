@@ -20,9 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 //Rota de acesso Usuário: Perfil e Saldo
 
-Route::get('/usuário/balance', [BalanceController::class, 'consultaSaldo']);
-
-Route::get('/usuário/balance/getlist', [BalanceController::class, 'getList']);
+Route::get('/usuário/balance/{id}', [BalanceController::class, 'get'])->middleware('auth');
 
 
 

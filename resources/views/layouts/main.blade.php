@@ -46,7 +46,7 @@
                         </li>
                         @auth
                             <li class="nav-item">
-                                <a class="nav-link" href="/dashboard">Minha Carteira</a>
+                                <a class="nav-link" href="/dashboard">Minha Ações</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
@@ -55,7 +55,7 @@
                                 </a>
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="#">Perfil</a></li>
-                                    <li><a class="dropdown-item" href="/usuário/balance">Saldo</a></li>
+                                    <li><a class="dropdown-item" href="/usuário/balance/{{auth()->user()->id}}">Saldo</a></li>
                                 </ul>
                             </li>
                             <li class="nav-item">

@@ -65,6 +65,16 @@ header {
 
 } 
 
+/* Card da pagina Saldo */
+
+.card-saldo {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+
+
+
 /* Formulario da Model */
 
 .title{
@@ -87,3 +97,4 @@ ion-icon{
     color: white;
     font-size: 26px;
 } 
+

@@ -17,16 +17,6 @@ class BalanceRepositoryEloquent implements BalanceRepositoryInterface
         $this->model = $model;
     }
 
-    public function store(array $data)
-    {
-        return $this->model->create($data);
-    }
-
-    public function getList()
-    {
-        return $this->model->all();
-    }
-
     public function get($id)
     {
         return $this->model->find($id);
@@ -35,11 +25,6 @@ class BalanceRepositoryEloquent implements BalanceRepositoryInterface
     public function update(array $data, $id)
     {
         return $this->model->find($id)->update($data);
-    }
-
-    public function destroy($id)
-    {
-        return $this->model->find($id)->delete($id);
     }
 
 }
