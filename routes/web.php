@@ -22,6 +22,13 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/usuário/balance', [BalanceController::class, 'consultaSaldo']);
 
+Route::get('/usuário/balance/getlist', [BalanceController::class, 'getList']);
+
+
+
+
+
+
 
 
 Route::post('/active', [ActiveController::class, 'store']);

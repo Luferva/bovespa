@@ -10,6 +10,7 @@ use App\Models\Balance;
 class BalanceController extends Controller
 {   
     public function consultaSaldo(){
+        
         return view('balance');
     }
 
