@@ -12,7 +12,7 @@ class BrapiApiRequest
 
     public function __construct()
     {
-        $this->base_url = config('integration.BRAPI_BASE_URL');
+        $this->base_url = config('bovespa.brapi_api_url');
     }
 
     protected function makeRequest(string $method, string $url, array $options = [])

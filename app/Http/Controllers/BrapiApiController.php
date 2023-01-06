@@ -31,25 +31,14 @@ class BrapiApiController extends Controller
             $order = request('order');
             $limit = request('limit');
 
-            if ($select && $order && $limit) {
-                $base_url = Http::get('https://brapi.dev/api/quote/list?sortBy=' . $select . '&sortOrder=' . $order . '&limit=' . $limit);
-            } elseif ($select && $order) {
-                $base_url = Http::get('https://brapi.dev/api/quote/list?sortBy=' . $select . '&sortOrder=' . $order);
-            } elseif ($select && $limit) {
-                $base_url = Http::get('https://brapi.dev/api/quote/list?sortBy=' . $select . '&limit=' . $limit);
-            } elseif ($order && $limit) {
-                $base_url = Http::get('https://brapi.dev/api/quote/list?sortOrder=' . $order . '&limit=' . $limit);
-            } elseif ($select) {
-                $base_url = Http::get('https://brapi.dev/api/quote/list?sortBy=' . $select);
-            } elseif ($order) {
-                $base_url = Http::get('https://brapi.dev/api/quote/list?sortOrder=' . $order);
-            } elseif ($limit) {
-                $base_url = Http::get('https://brapi.dev/api/quote/list?limit=' . $limit);
-            } else {
-                $base_url = Http::get('https://brapi.dev/api/quote/list');
-            }
+            $param = '?';
+            $param .= ($select) ? 'sortBy=' . $select . '&' : '';
+            $param .= ($order) ? 'sortOrder=' . $order . '&' : '';
+            $param .= ($limit) ? 'limit=' . $limit : '';
 
-            $apiArray = json_decode($base_url->body());
+            $response = Http::get('https://brapi.dev/api/quote/list' . $param);
+    
+            $apiArray = json_decode($response->body());
 
             //dd($apiArray);        
             return view('welcome', ['apiArray' => $apiArray->stocks]);

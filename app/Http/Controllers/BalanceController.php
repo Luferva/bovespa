@@ -17,16 +17,11 @@ class BalanceController extends Controller
         $this->service = $service;
     } 
 
-    public function get($id){
+    public function get(){
 
         $user = auth()->user();
-
-        if($id == $user->id){
-            $balance = $this->service->get($id);
-            return view('balance',['balance'=>$balance, 'user'=>$user]);
-        }else{
-            return view('auth/login');
-        }    
+        $balance = $this->service->get($user->id);
+        return view('balance',['balance'=>$balance, 'user'=>$user]);
     }
     
     public function update(Request $request, $id){

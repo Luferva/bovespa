@@ -22,6 +22,7 @@
         <div class="card-footer border-white bg-transparent">Acessado dia DD-MM-YYYY</div>
     </div>
 
+
     <div class="modal fade" id="extratoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -40,7 +41,7 @@
         </div>
       </div>
 
-    <div class="modal fade" id="depositoModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="depositoModal" tabindex="-1" aria-labelledby="depositoModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
