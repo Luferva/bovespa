@@ -18,7 +18,8 @@ class CreateTransactionsTable extends Migration
             $table->timestamps();
             $table->foreignId('user_id')->constrained();
             $table->string('tipo');
-            $table->float('saldo', 8, 2 ); 
+            $table->float('valor', 8, 2 );
+            $table->float('saldo', 8, 2 )->unsigned(); 
         });
     }
 

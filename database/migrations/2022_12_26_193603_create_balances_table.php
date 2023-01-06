@@ -17,7 +17,7 @@ class CreateBalancesTable extends Migration
             $table->id();
             $table->timestamps();
             $table->foreignId('user_id')->constrained();
-            $table->float('valor', 8, 2 );
+            $table->float('valor', 8, 2 )->unsigned();
         });
     }
 

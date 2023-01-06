@@ -95,7 +95,14 @@
             </h1>
         </div>
         <div class="conteiner-fluid">
-            @yield('content')
+            <div class="row">
+                @if(!empty($successMsg))
+                <div class="alert alert-success"> {{ $successMsg}}</div>
+                @elseif(!empty($dangerMsg))
+                <div class="alert alert-danger">  {{ $dangerMsg}}</div>
+                @endif
+                @yield('content')
+            </div>
         </div>
     </main>
 

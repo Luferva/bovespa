@@ -21,6 +21,8 @@ use Illuminate\Support\Facades\Route;
 //Rota de acesso Usuário: Perfil e Saldo
 
 Route::get('/usuário/balance', [BalanceController::class, 'get'])->middleware('auth');
+Route::put('/usuario/balance/deposito', [BalanceController::class, 'depositar'])->middleware('auth');
+Route::put('/usuario/balance/saque', [BalanceController::class, 'sacar'])->middleware('auth');
 
 
 

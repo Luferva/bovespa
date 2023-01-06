@@ -27,15 +27,14 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Extrato </h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
               ...
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              
             </div>
           </div>
         </div>
@@ -45,33 +44,56 @@
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Deposito</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              ...
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
+              <form class="row g-3" action="/usuario/balance/deposito" method="POST">
+                @csrf 
+                @method('PUT')
+                <div class="col-12">
+                  <label for="inputAtual" class="form-label">Valor Atual:</label>
+                  <input type="text" class="form-control" id="inputAtual" name="saldoAtual" value="{{number_format($balance->valor, 2,",",".")}}" readonly>
+                </div>
+                <div class="col-12">
+                  <label for="deposito" class="form-label">Valor do Deposito:</label>
+                  <input type="text" class="form-control" name="deposito" required>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-success" data-bs-dismiss="modal">Depositar</button>
+                </div>
+              </form>
             </div>
           </div>
         </div>
       </div>
-      <div class="modal fade" id="saqueModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+      <div class="modal fade" id="saqueModal" tabindex="-1" aria-labelledby="saqueModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Saque</h1>
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-              ...
+              <form class="row g-3" action="/usuario/balance/saque" method="POST">
+                @csrf 
+                @method('PUT')
+                <div class="col-12">
+                  <label for="inputAtual" class="form-label">Valor Atual:</label>
+                  <input type="text" class="form-control" id="inputAtual" name="saldoAtual" value="{{number_format($balance->valor, 2,",",".")}}" readonly>
+                </div>
+                <div class="col-12">
+                  <label for="saque" class="form-label">Valor do Saque:</label>
+                  <input type="text" class="form-control" name="saque" required>
+                </div>
+                <div class="col-12">
+                  <button type="submit" class="btn btn-danger" data-bs-dismiss="modal">Sacar</button>
+                </div>
+              </form>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+    
           </div>
         </div>
       </div>
