@@ -40,7 +40,7 @@
     </form>
 
 
-    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-6 g-4">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
         @foreach ($apiArray as $item)
             <div class="col">
                 <div class="card">
