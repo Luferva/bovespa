@@ -1,8 +1,8 @@
 <?php
+namespace App\Repositories;
 
 use PHPUnit\TextUI\XmlConfiguration\PhpHandler;
 
-namespace App\Repositories;
 
 use App\Models\Balance;
 use Illuminate\Database\Eloquent\Model;

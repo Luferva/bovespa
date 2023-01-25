@@ -1,8 +1,10 @@
 <?php
 
+namespace App\Services;
+
 use PHPUnit\TextUI\XmlConfiguration\PhpHandler;
 
-namespace App\Services;
+
 
 use App\Repositories\BalanceRepositoryEloquent;
 use App\Repositories\BalanceRepositoryInterface;
